@@ -1,0 +1,355 @@
+{
+	"tables": {
+		"1a930629-47dc-49af-a762-80992189b8a3": {
+			"id": "1a930629-47dc-49af-a762-80992189b8a3",
+			"visible": true,
+			"name": "users",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "27be5af5-7958-42a7-b8df-1884fe52bff4",
+					"name": "id",
+					"datatype": "bigserial",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "1c4dfde7-3315-4712-ba37-28482787b38f",
+					"name": "external_id",
+					"datatype": "uuid",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "uuid_generate_v4()",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "0c12f72d-8604-402d-a558-edcafbdb50b7",
+					"name": "username",
+					"datatype": "character varying",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "64"
+				},
+				{
+					"id": "969a0001-2310-42fd-b657-b3c7f8696efa",
+					"name": "password_hash",
+					"datatype": "char",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": "70"
+				},
+				{
+					"id": "dd8850f4-aa17-45fa-ba28-f8872a89463d",
+					"name": "is_active",
+					"datatype": "boolean",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "12ad6657-5761-46ef-bfa9-816b2d6d02ee",
+					"name": "created_at",
+					"datatype": "timestamp without time zone",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "now()",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "e9064143-fc53-49c8-b958-782cf2044746",
+					"name": "updated_at",
+					"datatype": "timestamp without time zone",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "now()",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				},
+				{
+					"id": "f645c0bc-be7b-4744-bcb7-60626e2b20ef",
+					"name": "deleted_at",
+					"datatype": "timestamp without time zone",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"collation": "",
+					"pg": {
+						"generatedIdentity": "no",
+						"storage": "",
+						"compression": ""
+					},
+					"estimatedSize": ""
+				}
+			],
+			"relations": [],
+			"lines": [],
+			"keys": [
+				{
+					"id": "125c3e33-c9a1-4c54-a6d4-1bd3daf39515",
+					"name": "users_pkey",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "f9a7b101-ea60-40ae-b0fd-e5b8622c337e",
+							"colid": "27be5af5-7958-42a7-b8df-1884fe52bff4"
+						}
+					]
+				}
+			],
+			"indexes": [
+				{
+					"id": "43ae3927-c72f-4a11-b969-fc68607961a0",
+					"name": "external_id_idx",
+					"unique": true,
+					"algorithm": "external_id",
+					"pg": {},
+					"cols": []
+				}
+			],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"objectType": "table",
+			"pg": {
+				"rowsecurity": false,
+				"schema": "",
+				"tablespace": "",
+				"inherits": "",
+				"storageParameters": "",
+				"partition": "",
+				"partitionNames": []
+			},
+			"afterScript": "CREATE UNIQUE INDEX idx_users_external_id ON users (external_id);\n"
+		}
+	},
+	"relations": {},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"name": "OAuthServer",
+		"id": "39655c68-78a2-45a9-ab21-9bae606b82f0",
+		"activeDiagram": "13033ccc-0a81-4a23-ad00-3c5e67fa2b90",
+		"desc": "Simple Oauth Server",
+		"path": "",
+		"type": "PG",
+		"version": 1,
+		"parentTableInFkCols": true,
+		"caseConvention": "under",
+		"replaceSpace": "_",
+		"color": "transparent",
+		"sideSelections": true,
+		"isDirty": false,
+		"storedin": {
+			"major": 9,
+			"minor": 0,
+			"extra": 0
+		},
+		"laststoredin": {
+			"major": 9,
+			"minor": 0,
+			"extra": 0
+		},
+		"writeFileParam": false,
+		"authorName": "",
+		"companyDetails": "",
+		"companyUrl": "",
+		"def_coltopk": true,
+		"pg": {
+			"schema": ""
+		},
+		"sqlSettings": {
+			"wrapLines": true,
+			"wrapOffset": 80,
+			"indent": true,
+			"indentationString": "spaces",
+			"indentationSize": 2,
+			"limitItemsOnLine": true,
+			"maxListItemsOnLine": 3,
+			"statementDelimiter": ";",
+			"routineDelimiter": ";",
+			"keywordCase": "upper",
+			"identiferCase": "original",
+			"quotationExistance": "if_needed",
+			"includeSchema": "always",
+			"includeGeneratedNames": "always"
+		},
+		"nameAutoGeneration": {
+			"keys": true,
+			"indexes": true,
+			"relations": true
+		},
+		"connectionVersion": "",
+		"synchronizationSettings": {
+			"preserveData": "use_temporary_tables",
+			"ignoreSystemDefaults": "yes",
+			"includeWarnings": "yes",
+			"includeCreationSql": "no"
+		},
+		"lastSaved": 1744940339596,
+		"beforeScript": "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n"
+	},
+	"otherObjects": {},
+	"diagrams": {
+		"13033ccc-0a81-4a23-ad00-3c5e67fa2b90": {
+			"name": "Main Diagram",
+			"description": "",
+			"id": "13033ccc-0a81-4a23-ad00-3c5e67fa2b90",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 1,
+			"background": "transparent",
+			"lineColor": "transparent",
+			"isOpen": true,
+			"main": true,
+			"diagramItems": {
+				"1a930629-47dc-49af-a762-80992189b8a3": {
+					"referencedItemId": "1a930629-47dc-49af-a762-80992189b8a3",
+					"x": 128,
+					"y": 103,
+					"gHeight": 200,
+					"gWidth": 316,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				}
+			},
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd",
+			"showHorizontal": true,
+			"showDescriptions": true,
+			"showIndicators": true,
+			"showProgress": true,
+			"lineWidth": "2",
+			"boxSize": "0",
+			"boxSpacing": "2",
+			"boxAlign": "center",
+			"showIndicatorCaptions": true,
+			"showEstimatedSize": false,
+			"showSchemaContainer": true,
+			"showEmbeddedInParents": true,
+			"showCardinalityCaptions": true,
+			"showRelationshipNames": false,
+			"showLineCaptions": false,
+			"showColumns": true,
+			"showColumnDataTypes": true,
+			"showSampleData": false,
+			"showTableIndexes": true,
+			"showTableDescriptions": false,
+			"showRelations": true,
+			"backgroundImage": "na",
+			"descriptionsColor": "transparent",
+			"embeddedSpacing": "2",
+			"showMainIcon": true,
+			"showLabels": true,
+			"showCustomizations": false
+		}
+	},
+	"diagramsOrder": [],
+	"order": [
+		"1a930629-47dc-49af-a762-80992189b8a3"
+	],
+	"collapsedTreeItems": [],
+	"reverseStats": {}
+}
